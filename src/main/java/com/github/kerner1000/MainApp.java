@@ -25,7 +25,6 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
-import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.StackPane;
@@ -55,10 +54,9 @@ public class MainApp extends Application {
 	tableView.getColumns().add(c1);
 	tableView.setItems(content);
 	tableView.setOnScroll(e -> {
-	    final ScrollBar scrollBar = (ScrollBar) tableView.lookup(".scroll-bar:vertical");
-	    if (scrollBar.getValue() == 0) {
+	    if (e.getDeltaY() > 0) {
 		fillAtTop();
-	    } else if (scrollBar.getValue() == 1) {
+	    } else if (e.getDeltaY() < 0) {
 		fillAtBottom();
 	    }
 	});
