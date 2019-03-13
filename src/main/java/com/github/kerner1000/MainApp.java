@@ -30,11 +30,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Alexander Kerner
- *
- */
 public class MainApp extends Application {
 
     final AtomicInteger cnt = new AtomicInteger(0);
